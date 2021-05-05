@@ -69,10 +69,7 @@ const createMovement = ({
     type = MovementType.EXPENSE,
     category = '',
 } = {}) => {
-    /*
-    al sacar el date, se puede agregar un movimiento con la fecha seleccionada
     date = new Date()
-    */
     return Movement.create({ date, amount, type, category });
 };
 
