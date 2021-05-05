@@ -38,16 +38,6 @@ function getMovementData() {
     return movement;
 }
 
-function Confirmar() {
-    var mensaje = confirm("¿Está seguro que desea eliminar el movimiento?");
-    if (mensaje) {
-    }
-    else {
-        state.movement = {};
-        render('movement-form.html', state, refs.form);
-    }
-}
-
 // Event Listeners
 
 /**
@@ -75,8 +65,6 @@ window.onRemove = async function () {
     await movementService.remove(movement);
     state.movement = {};
     render('movement-form.html', state, refs.form);
-
-    window.location.reload();
 };
 
 /**
@@ -95,7 +83,6 @@ window.onSave = async function (e) {
 
     state.movement = {};
     render('movement-form.html', state, refs.form);
-    window.location.reload();
 };
 
 init();
