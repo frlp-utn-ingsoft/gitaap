@@ -65,4 +65,19 @@ router.put('/:id', function (req, res) {
         .catch(() => res.status(500).send('Error al obtener movimiento'));
 });
 
+/*
+Creo el delete del router para despues conectarlo a la api
+*/
+router.delete('/:id', function (req, res){
+    MovementModel.delete(req.params.id)
+        .then((movement) => {
+            if (movement != null) {
+                res.status(200).send(
+                    'El movimiento ' + req.params.id + 'se ha borrado'
+                );
+            } else res.status(404).send(movement);
+        })
+        .catch(() => res.status(500).send('Error al eliminar movimiento'));
+});
+
 module.exports = router;
