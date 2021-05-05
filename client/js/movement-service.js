@@ -31,8 +31,9 @@ async function create(movement) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(movement),
+        
     });
-
+    alert("Movimiento creado con éxito!!");
     return resp.json();
 }
 
