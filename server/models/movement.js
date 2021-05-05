@@ -62,14 +62,17 @@ const getAllMovements = (limit, skip, type) => {
  * Crear un movimiento nuevo.
  * Parámetro data: JSON con los atributos a crear.
  *
+ * Se modifica la fecha para que devuelva la ingresada por pantalla
  */
 const createMovement = ({
-    date = '01/01/2021',
+    date = new Date('01/01/2021'),
     amount = 0.0,
     type = MovementType.EXPENSE,
     category = '',
 } = {}) => {
-    date = new Date()
+    
+    
+
     return Movement.create({ date, amount, type, category });
 };
 
