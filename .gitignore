@@ -107,3 +107,4 @@ server/database.sqlite
 tests_output
 client/js/partials/
 .lighthouseci
+package-lock.json

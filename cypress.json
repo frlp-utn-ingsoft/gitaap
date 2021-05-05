@@ -1,7 +1,10 @@
 {
+    "projectId": "s2cn6y",
     "video": false,
     "fixturesFolder": false,
     "supportFile": false,
     "integrationFolder": "tests/e2e/specs",
-    "pluginsFile": "tests/e2e/plugins/index.js"
+    "pluginsFile": "tests/e2e/plugins/index.js",
+    "viewportWidth": 1200,
+    "viewportHeight": 800
 }
