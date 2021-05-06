@@ -38,6 +38,16 @@ function getMovementData() {
     return movement;
 }
 
+function Confirmar() {
+    var mensaje = confirm("¿Está seguro que desea eliminar el movimiento?");
+    if (mensaje) {
+    }
+    else {
+        state.movement = {};
+        render('movement-form.html', state, refs.form);
+    }
+}
+
 // Event Listeners
 
 /**
