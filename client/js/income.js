@@ -88,6 +88,7 @@ window.onSave = async function (e) {
         await movementService.create(movement);
     }
     state.movement = {};
+    window.location.reload();
     render('movement-form.html', state, refs.form);
 };
 
