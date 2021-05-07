@@ -1,5 +1,9 @@
-import { getRefs, render } from './render.js';
+import {
+    getRefs,
+    render
+} from './render.js';
 import movementService from './movement-service.js';
+
 
 let state = {
     movements: [],
@@ -71,15 +75,18 @@ window.onRemove = async function () {
  **/
 window.onSave = async function (e) {
     e.stopPropagation();
+    const form = document.querySelector('form');
+    form.addEventListener('submit', onSave)
+    if (!form.checkValidity()) {
+        return;
+    }
     e.preventDefault();
     const movement = getMovementData();
-
     if (movement.id) {
         await movementService.update(movement);
     } else {
         await movementService.create(movement);
     }
-
     state.movement = {};
     render('movement-form.html', state, refs.form);
 };
