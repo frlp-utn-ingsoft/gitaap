@@ -33,7 +33,9 @@ async function create(movement) {
         body: JSON.stringify(movement),
     });
 
-    if(!alert('Ingreso creado con éxito')) window.location.reload();
+    alert('Ingreso creado con éxito');
+    document.location.reload();
+
     return resp.json();
 }
 
