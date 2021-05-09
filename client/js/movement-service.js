@@ -33,15 +33,23 @@ async function create(movement) {
         body: JSON.stringify(movement),
     });
 
-    alert('Ingreso creado con éxito');
+    if(!alert('Ingreso creado con éxito')) window.location.reload();
     return resp.json();
 }
 
 async function remove(movement) {
-    console.log('delete:', movement);
-    return new Promise(resolve => {
-        resolve();
+    const resp = await fetch(`${BASE_URL}/movements/${movement.id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(movement),
     });
+
+    alert('Ingreso eliminado con éxito');
+    document.location.reload();
+    
+    return resp.json();
 }
 
 export default {
