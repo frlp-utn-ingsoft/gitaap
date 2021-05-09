@@ -77,14 +77,27 @@ window.onSave = async function (e) {
     e.preventDefault();
     const movement = getMovementData();
 
-    if (movement.id) {
-        await movementService.update(movement);
+    if(validate(movement)){
+        if (movement.id) {
+            await movementService.update(movement);
+        } else {
+            await movementService.create(movement);
+        }
+    
+        state.movement = {};
+        render('movement-form.html', state, refs.form);
+    
     } else {
-        await movementService.create(movement);
+        alert("Todos los campos son obligatorios!");
     }
-
-    state.movement = {};
-    render('movement-form.html', state, refs.form);
 };
+
+const validate = (movement) => (
+        movement.amount &&
+        movement.category &&
+        movement.date &&
+        movement.description &&
+        movement.type 
+);
 
 init();
