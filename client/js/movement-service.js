@@ -33,6 +33,7 @@ async function create(movement) {
         body: JSON.stringify(movement),
     });
 
+    alert('Ingreso creado con éxito');
     return resp.json();
 }
 
