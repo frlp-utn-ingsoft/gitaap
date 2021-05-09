@@ -37,6 +37,3 @@ export function formatDate(date) {
     return date.split('T')[0];
 }
 
-export function formatAmount(amount) {
-    console.log(amount)
-}
