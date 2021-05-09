@@ -30,6 +30,10 @@ const Movement = db.define(
             type: Sequelize.STRING,
             allowNull: false,
         },
+        description: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
     },
     { tableName: 'Movement' }
 );
@@ -64,13 +68,14 @@ const getAllMovements = (limit, skip, type) => {
  *
  */
 const createMovement = ({
-    date = '',
+    date = '01/01/2021',
     amount = 0.0,
     type = MovementType.EXPENSE,
     category = '',
+    description = '',
 } = {}) => {
-    //date = new Date()
-    return Movement.create({ date, amount, type, category });
+    date = new Date()
+    return Movement.create({ date, amount, type, category, description });
 };
 
 /**
