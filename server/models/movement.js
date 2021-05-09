@@ -14,7 +14,7 @@ const Movement = db.define(
     {
         // Atributos
         date: {
-            type: Sequelize.DATE,
+            type: Sequelize.DATEONLY,
             allowNull: false,
         },
         amount: {
