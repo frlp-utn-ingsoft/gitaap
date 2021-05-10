@@ -11,6 +11,12 @@ async function getIncomes() {
     const { movements } = await resp.json();
     return movements;
 }
+async function getExpenses() {
+    const resp = await fetch(`${BASE_URL}/movements?type=expense`);
+    const { movements } = await resp.json();
+    return movements;
+}
+
 
 async function update(movement) {
     const resp = await fetch(`${BASE_URL}/movements/${movement.id}`, {
@@ -60,4 +66,5 @@ export default {
     remove,
     getLast,
     getIncomes,
+    getExpenses
 };
