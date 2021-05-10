@@ -34,5 +34,15 @@ export function getMonth(dateString) {
 }
 
 export function formatDate(date) {
-    return date.split('T')[0];
+    
+    const fecha = new Date (date);
+    const fecha2 = fecha.getFullYear()+'-' + (fecha.getMonth()+1) + '-'+fecha.getDate();
+    console.log(fecha2);
+    return fecha2;
+    
+
+    
+    
 }
+
+
