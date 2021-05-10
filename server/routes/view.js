@@ -10,4 +10,9 @@ router.get('/income', function (req, res) {
     res.render('income');
 });
 
+router.get('/expense', function (req, res) {
+    res.render('expense');
+});
+
+
 module.exports = router;

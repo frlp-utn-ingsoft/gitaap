@@ -136,7 +136,7 @@ test('Buscar movimientos por api filtrando por tipo expense', async () => {
     const secondMovementData = {
         date: '04/01/2021',
         amount: 50000.0,
-        type: MovementType.INCOME,
+        type: MovementType.EXPENSE,
         category: 'Sueldo',
     };
 
