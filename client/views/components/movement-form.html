@@ -4,6 +4,7 @@
         name="id"
         class="is-hidden"
         value="{{ movement.id if movement.id }}"
+        
     />
 
     <div class="field">
@@ -62,7 +63,7 @@
         <div class="control">
             <button
                 class="button is-primary"
-                onclick="onSave(event)"
+                onclick="onSave(event); location.reload();"
                 type="submit"
             >
                 Guardar
