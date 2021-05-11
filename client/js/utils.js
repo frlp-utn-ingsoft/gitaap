@@ -11,7 +11,7 @@ export function monefy(num) {
     }else{
          parteDecimal = "00"
     }                                           //guardo en parteDecimal la parte decimal del n°
-    let parteDecimalS = String(parteDecimal);   //transformo la parte decimal del numero a String
+
     const points = numEnteroS.length / 3;
     const result = [];
 
