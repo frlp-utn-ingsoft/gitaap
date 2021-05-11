@@ -69,7 +69,16 @@ window.onRemove = async function () {
  * Guarda un movimiento
  **/
 window.onSave = async function (e) {
+
     e.stopPropagation();
+
+    const form = document.querySelector('form');
+    form.addEventListener('submit', onSave);
+
+    if (!form.checkValidity()){
+        return ;
+    }
+
     e.preventDefault();
     const movement = getMovementData();
 
