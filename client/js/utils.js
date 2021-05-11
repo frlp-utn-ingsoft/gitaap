@@ -8,9 +8,9 @@ export function monefy(num) {
     let parteDecimal;
     if (numString.split(".").length > 1) {
          parteDecimal = numString.split(".").slice(-1).pop()
-    }else{
-         parteDecimal = "00"
-    }                                           //guardo en parteDecimal la parte decimal del n°
+    }
+
+                                              //guardo en parteDecimal la parte decimal del n°
 
     const points = numEnteroS.length / 3;
     const result = [];
@@ -25,7 +25,10 @@ export function monefy(num) {
     }
 
     let resultado = result.reverse().join('.');
-    return resultado + ',' + parteDecimal;
+    if (numString.split(".").length > 1) {
+        resultado = resultado + ',' + parteDecimal;
+    }
+    return resultado
     //la linea de arriba devuelve la parte entera con la separacion de "." 
     //me falta concatenarlo con la parte decimal que obtuve en la variable parteDecimal
 }
