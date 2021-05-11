@@ -19,7 +19,7 @@
     </div>
 
     <div class="field">
-        <label class="label">Fecha</label>
+        <label class="label">Fecha *</label>
         <div class="control">
             <input
                 name="date"
@@ -27,12 +27,13 @@
                 type="date"
                 placeholder=""
                 value="{{ movement.date | formatDate if movement.date }}"
+                required
             />
         </div>
     </div>
 
     <div class="field">
-        <label class="label">Categoría</label>
+        <label class="label">Categoría *</label>
         <div class="control">
             <input
                 name="category"
@@ -40,12 +41,13 @@
                 type="text"
                 placeholder=""
                 value="{{ movement.category if movement.category }}"
+                required
             />
         </div>
     </div>
 
     <div class="field">
-        <label class="label">Monto</label>
+        <label class="label">Monto *</label>
 
         <div class="control">
             <input
@@ -54,6 +56,7 @@
                 type="number"
                 placeholder=""
                 value="{{ movement.amount if movement.amount }}"
+                required
             />
         </div>
     </div>
@@ -73,6 +76,10 @@
             <button class="button is-inverted" onclick="onCancel(event)">
                 Limpiar
             </button>
+        </div>
+
+        <div>
+            <b class="label">* Campos Obligatorios</b>
         </div>
 
         {% if movement.id %}
