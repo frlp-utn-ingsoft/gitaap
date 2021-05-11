@@ -37,10 +37,15 @@ async function create(movement) {
 }
 
 async function remove(movement) {
-    console.log('delete:', movement);
-    return new Promise(resolve => {
-        resolve();
+    console.log('delete:', movement.id);
+    const resp = await fetch(`${BASE_URL}/movements/${movement.id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },        
     });
+
+    return resp.json();
 }
 
 export default {
