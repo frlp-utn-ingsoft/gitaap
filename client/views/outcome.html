@@ -1,6 +1,6 @@
 <!-- prettier-ignore -->
 
-{% set activeLink = "incoe" %}
+{% set activeLink = "outcome" %}
 {% extends "_base.html" %}
 
 {% block title %}Gitapp - Ingresos{% endblock %}
@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-header">
                     <p class="card-header-title" data-ref="formTitle">
-                        Nuevo ingreso
+                        Nuevo Egreso
                     </p>
                 </div>
 
@@ -25,10 +25,10 @@
         <div class="column">
             <div class="card" data-testid="last-movements">
                 <div class="card-header">
-                    <p class="card-header-title">Últimos ingresos</p>
+                    <p class="card-header-title">Últimos Egresos</p>
                 </div>
                 <div class="card-content">
-                    <div data-ref="incomes"></div>
+                    <div data-ref="monthBalance"></div>
                 </div>
             </div>
         </div>

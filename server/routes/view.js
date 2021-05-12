@@ -9,5 +9,8 @@ router.get('/', function (req, res) {
 router.get('/income', function (req, res) {
     res.render('income');
 });
+router.get('/outcome', function (req, res) {
+    res.render('outcome');
+});
 
 module.exports = router;
