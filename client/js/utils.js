@@ -13,7 +13,7 @@ export function monefy(num) {
         result.push(chunk);
     }
 
-    return result.reverse().join('.');
+    return result.reverse().join(',');
 }
 
 export function getRandomColor() {
