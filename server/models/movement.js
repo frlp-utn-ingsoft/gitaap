@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const sequelize = require('../db.js')
 
 const db = require('../db.js');
 
@@ -32,7 +33,7 @@ const Movement = db.define(
         },
         description: {
             type: Sequelize.STRING,
-            allowNull: true,
+            allowNull: false,
         }
     },
     { tableName: 'Movement' }
@@ -72,12 +73,13 @@ const createMovement = ({
     amount = 0.0,
     type = MovementType.EXPENSE,
     category = '',
+    description = '',
 } = {}) => {
 
 
 
     date = date;
-    return Movement.create({ date, amount, type, category });
+    return Movement.create({ date, amount, type, category, description });
 
 };
 
