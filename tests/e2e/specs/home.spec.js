@@ -25,4 +25,22 @@ describe('Home Test', () => {
             .title()
             .should('eq', 'Gitapp - Ingresos')
     });
+
+    //Verifica que se utilice la clase card-header-title
+    it('Deberia tener clase card-header-title', () => {
+        cy.visit('/');
+
+        cy.get('[id=titulo1]').should('have.class', 'card-header-title');
+        cy.get('[id=titulo2]').should('have.class', 'card-header-title');
+        cy.get('[id=titulo3]').should('have.class', 'card-header-title');
+    });
+
+    //Verifica que se utilice la clase card-header
+    it('Deberia tener clase card-header', () => {
+        cy.visit('/');
+
+        cy.get('[id=div-titulo1]').should('have.class', 'card-header');
+        cy.get('[id=div-titulo2]').should('have.class', 'card-header');
+        cy.get('[id=div-titulo3]').should('have.class', 'card-header');
+    });
 });
