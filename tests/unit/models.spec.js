@@ -287,6 +287,14 @@ test('Eliminar movimiento', async () => {
 
     // No deben haber movimientos en la lista
     expect(movements.rows.length).toBe(0);
+
+     //Verificamos que el movimiento se haya eliminado
+     let movimiento = await MovementModel.getAll(movementData.id);
+     if (movimiento.count == 0){
+         console.log("Se ha eliminado el movimiento correctamente");
+     }else{
+         console.log("No se ha eliminado el movimiento correctamente");
+     }
 });
 
 test('Eliminar movimiento inexistente', async () => {
