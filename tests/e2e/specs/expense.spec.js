@@ -1,4 +1,4 @@
-describe('Ingresos Test', () => {
+describe('Egresos Test', () => {
     // Limpio la db antes de cada test
     beforeEach(() => {
         cy.task('seed');
@@ -12,9 +12,9 @@ describe('Ingresos Test', () => {
             .contains('editar')
             .click();
 
-        cy.get('input[name=id]').should('have.value', '3');
-        cy.get('input[name=category]').should('have.value', 'Sueldo');
-        cy.get('input[name=amount]').should('have.value', '50000');
+        cy.get('input[name=id]').should('have.value', '1');
+        cy.get('input[name=category]').should('have.value', 'Supermercado');
+        cy.get('input[name=amount]').should('have.value', '1000');
     });
 
     it('Deberia poder crear un nuevo egreso', () => {
