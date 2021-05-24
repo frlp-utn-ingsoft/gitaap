@@ -1,9 +1,7 @@
 export function monefy(num) {
     if (!num) return '';
-    const numStr = Number(num);
-    const result = [];
-    result.push(numStr);
-    return result;
+    const numStr = String(num);
+    return numStr;
 }
 
 export function getRandomColor() {
