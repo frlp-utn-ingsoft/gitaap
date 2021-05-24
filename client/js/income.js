@@ -76,7 +76,7 @@ window.onRemove = async function () {
 window.onSave = async function (e) {
     e.stopPropagation();
     const form = document.querySelector('form');
-    form.addEventListener('submit', onSave)
+    form.addEventListener('submit', window.onSave)
     if (!form.checkValidity()) {
         return;
     }

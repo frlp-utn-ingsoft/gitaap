@@ -26,6 +26,6 @@ describe('Ingresos Test', () => {
         cy.contains('Guardar').click();
         cy.reload();
 
-        cy.get('[data-testid=movement]').should('have.length', 5);
+        cy.get('[data-testid=movement]').should('have.length', 4);
     });
 });
