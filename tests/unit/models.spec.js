@@ -10,6 +10,7 @@ test('Crear movimiento', async () => {
         date: '04/01/2021',
         amount: 50000.0,
         type: MovementType.INCOME,
+        description: 'Description',
         category: 'Sueldo',
     };
 
@@ -19,6 +20,7 @@ test('Crear movimiento', async () => {
     expect(movement.amount).toBe(movementData.amount);
     expect(movement.type).toBe(movementData.type);
     expect(movement.category).toBe(movementData.category);
+    expect(movement.description).toBe(movementData.description);
 });
 
 test('Crear movimiento sin tipo', async () => {
@@ -26,6 +28,7 @@ test('Crear movimiento sin tipo', async () => {
         date: '01/01/2021',
         amount: 1000.0,
         category: 'Supermercado',
+        description: 'Description',
     };
 
     // Creamos el movimiento
@@ -34,6 +37,7 @@ test('Crear movimiento sin tipo', async () => {
     expect(movement.amount).toBe(movementData.amount);
     expect(movement.type).toBe(MovementType.EXPENSE);
     expect(movement.category).toBe(movementData.category);
+    expect(movement.description).toBe(movementData.description);
 });
 
 test('Crear movimiento sin fecha', async () => {
