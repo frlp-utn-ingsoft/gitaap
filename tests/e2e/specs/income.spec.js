@@ -28,4 +28,13 @@ describe('Ingresos Test', () => {
 
         cy.get('[data-testid=movement]').should('have.length', 4);
     });
+    it('Deberia poder validar el formulario', () => {
+        cy.visit('/income');
+        cy.get('[id=descripcion-validacion]').should('have.attr', 'required');
+        cy.get('[id=fecha-validacion]').should('have.attr', 'required');
+        cy.get('[id=categoria-validacion]').should('have.attr', 'required');
+        cy.get('[id=monto-validacion]').should('have.attr', 'required');
+
+
+    });
 });
