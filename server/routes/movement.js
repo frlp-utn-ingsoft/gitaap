@@ -71,13 +71,13 @@ router.put('/:id', function (req, res) {
  *
  */
  router.delete('/:id', function (req, res) {
-    MovementModel.delete(req.params.id)
+    MovementModel.delete(req.params.id, req.body)
         .then((movement) => {
             if (movement != null) {
-                res.status(200).send(
+                res.status(404).send(
                     'El movimiento ' + req.params.id + '  fue eliminado'
                 );
-            } else res.status(404).send(movement);
+            } else res.status(200).send(movement);
         })
         .catch(() => res.status(500).send('Error al eliminar movimiento'));
 });

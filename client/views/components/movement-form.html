@@ -7,7 +7,7 @@
         
     />
 
-    <div class="field">
+   <div class="field">
         <label class="label">Descripción</label>
         <div class="control">
             <input
@@ -18,6 +18,7 @@
             />
         </div>
     </div>
+     
 
     <div class="field">
         <label class="label">Fecha</label>
@@ -30,9 +31,10 @@
                 value="{{ movement.date if movement.date }}"
             />
         </div>
+     
     </div>
 
-    <div class="field">
+    <div class="field"> 
         <label class="label">Categoría</label>
         <div class="control">
             <input
@@ -43,6 +45,7 @@
                 value="{{ movement.category if movement.category }}"
             />
         </div>
+      
     </div>
 
     <div class="field">
@@ -58,6 +61,7 @@
             />
         </div>
     </div>
+
 
     <div class="field is-grouped">
         <div class="control">
@@ -84,4 +88,7 @@
         </div>
         {% endif %}
     </div>
+
+  
+
 </form>
