@@ -314,7 +314,7 @@ test('Eliminar movimiento por api', async () => {
     expect(req.status).toBe(200);
 
     // Chequeamos que el movimiento haya sido eliminado
-    expect(movementData).toEqual(expect.anything());
+    expect(movement).toEqual(expect.anything());
 
     
 });
