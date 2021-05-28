@@ -30,7 +30,7 @@ describe('Ingresos Test', () => {
         cy.get('[data-testid=movement]').should('have.length', 5);
     });
 
-    it('Deberia aparecer una alerta que indique que el movimiento se creo correctamente', () => {
+    it('Deberia aparecer una alerta que indique que el movimiento se creo correctamente', (done) => {
         cy.visit('/income');
 
         cy.get('input[name=date]').type('2021-04-26');
@@ -40,9 +40,8 @@ describe('Ingresos Test', () => {
 
         cy.on('window:alert', (str) => {
         expect(str).to.equal('Se creo correctamente');
-        });
-
-	cy.reload();
+        done();
+	});
 
     });
 });
