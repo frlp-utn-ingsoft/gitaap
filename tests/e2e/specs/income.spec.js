@@ -40,7 +40,14 @@ describe('Ingresos Test', () => {
 
         cy.on('window:alert', (str) => {
         expect(str).to.equal('Se creo correctamente');
+
 	done();
         });
+
+
+	});
+
+
+
     });
 });
