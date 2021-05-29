@@ -19,7 +19,20 @@ test('Crear movimiento', async () => {
     expect(movement.amount).toBe(movementData.amount);
     expect(movement.type).toBe(movementData.type);
     expect(movement.category).toBe(movementData.category);
+    
 });
+
+
+
+
+
+
+
+
+
+
+
+
 
 test('Crear movimiento sin tipo', async () => {
     const movementData = {
