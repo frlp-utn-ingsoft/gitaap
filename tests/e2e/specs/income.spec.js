@@ -28,4 +28,20 @@ describe('Ingresos Test', () => {
 
         cy.get('[data-testid=movement]').should('have.length', 5);
     });
+
+
+
+    it('Deberia aparecer un alert luego de crear un movimiento', (done) => {
+        cy.visit('/income');
+        cy.get('input[name=date]').type('2020-03-14');
+        cy.get('input[name=amount]').type('23000');
+        cy.get('input[name=category]').type('Plazo Fijo');
+        
+
+        cy.contains('Guardar').click();
+        cy.on('window:alert', (str) => {
+            expect(str).to.equal('Movimiento creado con éxito!!');
+            done();
+          })     
+    });
 });
