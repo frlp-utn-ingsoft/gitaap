@@ -21,6 +21,21 @@ test('Crear movimiento', async () => {
     expect(movement.category).toBe(movementData.category);
 });
 
+//Verificar campo descripcion
+test('Verificar campo descripcion', async () => {
+    const movementData = {
+        date: '04/01/2021',
+        amount: 50000.0,
+        type: MovementType.INCOME,
+        category: 'Sueldo',
+        description: 'description',
+    };
+
+    // Creamos el movimiento
+    const movement = await MovementModel.create(movementData);
+    expect(movement.description).toBe(movementData.description);
+});
+
 test('Crear movimiento sin tipo', async () => {
     const movementData = {
         date: '01/01/2021',
