@@ -11,3 +11,20 @@ describe('Método formatDate', () =>{
 
 
 });
+
+describe('Método monefy', () => {
+
+    it('Debería convertir 1000 en "1000,35"', async () => {
+        expect(monefy(1000.35)).toBe('1000,35');
+    });
+    
+    it('Debería convertir 100 en "100"', async () => {
+        expect(monefy(100)).toBe('100');
+    });
+    
+    it('Debería convertir undefined en ""', async () => {
+        expect(monefy(undefined)).toBe('');
+    });
+
+
+});
