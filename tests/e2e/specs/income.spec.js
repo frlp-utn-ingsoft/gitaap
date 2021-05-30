@@ -36,6 +36,7 @@ describe('Ingresos Test', () => {
         cy.get('input[name=date]').type('2021-04-26');
         cy.get('input[name=category]').type('Bono');
         cy.get('input[name=amount]').type('100000');
+        cy.wait(3000);
         cy.contains('Guardar').click();
 
         const stub = cy.stub();
