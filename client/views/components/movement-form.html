@@ -4,9 +4,10 @@
         name="id"
         class="is-hidden"
         value="{{ movement.id if movement.id }}"
+        
     />
 
-    <div class="field">
+   <div class="field">
         <label class="label">Descripción</label>
         <div class="control">
             <input
@@ -17,6 +18,7 @@
             />
         </div>
     </div>
+     
 
     <div class="field">
         <label class="label">Fecha</label>
@@ -26,12 +28,13 @@
                 class="input"
                 type="date"
                 placeholder=""
-                value="{{ movement.date | formatDate if movement.date }}"
+                value="{{ movement.date if movement.date }}"
             />
         </div>
+     
     </div>
 
-    <div class="field">
+    <div class="field"> 
         <label class="label">Categoría</label>
         <div class="control">
             <input
@@ -42,6 +45,7 @@
                 value="{{ movement.category if movement.category }}"
             />
         </div>
+      
     </div>
 
     <div class="field">
@@ -58,11 +62,12 @@
         </div>
     </div>
 
+
     <div class="field is-grouped">
         <div class="control">
             <button
                 class="button is-primary"
-                onclick="onSave(event)"
+                onclick="onSave(event); location.reload();"
                 type="submit"
             >
                 Guardar
@@ -83,4 +88,7 @@
         </div>
         {% endif %}
     </div>
+
+  
+
 </form>

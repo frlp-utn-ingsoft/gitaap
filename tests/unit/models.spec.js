@@ -1,5 +1,6 @@
 const MovementModel = require('../../server/models/movement.js');
 const MovementType = require('../../server/models/movementType.js');
+const MovementService = require('../../client/js/movement-service.js');
 
 beforeEach(async () => {
     await MovementModel.Movement.sync({ force: true });
@@ -15,19 +16,15 @@ test('Crear movimiento', async () => {
 
     // Creamos el movimiento
     const movement = await MovementModel.create(movementData);
-
+    var d = new Date(movementData.date);
     expect(movement.amount).toBe(movementData.amount);
     expect(movement.type).toBe(movementData.type);
     expect(movement.category).toBe(movementData.category);
-    });
 
-
-
-
-
-
-
-
+    //////////////////////////////////////////
+    expect(movement.date).toEqual(d);
+    //////////////////////////////////////////
+});
 
 
 test('Crear movimiento sin tipo', async () => {
@@ -326,3 +323,20 @@ test('Eliminar movimiento inexistente', async () => {
     // El movimiento debería seguir existiendo en la lista
     expect(movements.rows.length).toBe(1);
 });
+
+/*test('Mostrar alerta tras crear movimiento', async () => {
+    const movementData = {
+        date: '04/01/2021',
+        amount: 50000.0,
+        type: MovementType.INCOME,
+        category: 'Sueldo',
+    };
+
+    // Creamos el movimiento
+    const movement = await MovementService.create(movementData);
+
+    spyOn(window, 'alert');
+    setTimeout(1);
+    amount: 3;
+    expect(window.alert).toHaveBeenCalledWith('Movimiento creado con éxito!!');
+});*/

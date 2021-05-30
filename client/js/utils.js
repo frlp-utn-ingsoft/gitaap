@@ -1,4 +1,4 @@
-export function monefy(num) {
+/* export function monefy(num) {
     if (!num) return '';
 
     const numStr = String(num);
@@ -13,9 +13,20 @@ export function monefy(num) {
         result.push(chunk);
     }
 
-    return result.reverse().join('.');
-}
+    return result.reverse().join(',');
+} */
 
+export function monefy(num){ //Arreglo el bug de la coma
+
+    if (!num) return '';
+    
+    var n = new Number(num);
+    
+        return n.toLocaleString("es-ar", n);
+    
+    }
+
+    
 export function getRandomColor() {
     return `hsl(${360 * Math.random()}, ${25 + 70 * Math.random()}%, ${
         65 + 10 * Math.random()
@@ -43,6 +54,18 @@ export function getMonth(dateString) {
     return monthNames[date.getMonth()];
 }
 
-export function formatDate(date) {
+/* export function formatDate(date) {
     return date.split('T')[0];
+}
+ */
+
+export function formatDate(date){
+
+    var date = new Date(date);
+    var day = date.getDate();
+    var month = date.getMonth()+1;
+    var year = date.getFullYear();
+
+    const formattedDate = day + "/" + month + "/" + year;
+    return formattedDate;
 }
