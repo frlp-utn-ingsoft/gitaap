@@ -1,6 +1,5 @@
 const MovementModel = require('../../server/models/movement.js');
 const MovementType = require('../../server/models/movementType.js');
-const MovementService = require('../../client/js/movement-service.js');
 
 beforeEach(async () => {
     await MovementModel.Movement.sync({ force: true });
