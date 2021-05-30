@@ -62,7 +62,7 @@ export function getMonth(dateString) {
 export function formatDate(date){
 
     var date = new Date(date);
-    var day = date.getDate()+1;
+    var day = date.getDate();
     var month = date.getMonth()+1;
     var year = date.getFullYear();
 
