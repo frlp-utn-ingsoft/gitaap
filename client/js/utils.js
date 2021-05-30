@@ -2,8 +2,7 @@ export function monefy(num) {
     if (!num) return '';
 
     const numStr = String(num);
-
-    return numStr;
+    return numStr.toString().replace(/\B(?<!,\d*)(?=(\d{3})+(?!\d))/g, ".");
 }
 
 export function getRandomColor() {

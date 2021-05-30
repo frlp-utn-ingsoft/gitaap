@@ -25,4 +25,5 @@ describe('Home Test', () => {
             .title()
             .should('eq', 'Gitapp - Ingresos')
     });
+
 });
