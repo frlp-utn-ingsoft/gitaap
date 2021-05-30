@@ -33,6 +33,14 @@ async function create(movement) {
         body: JSON.stringify(movement),
     });
 
+    console.log(resp);
+
+    if(resp.status == 201){
+    	alert('Se creo correctamente');
+    } else {
+    	alert('Error del Servidor');
+    }
+
     return resp.json();
 }
 
