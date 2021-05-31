@@ -33,12 +33,15 @@ describe('Ingresos Test', () => {
     it('Deberia aparecer la alerta de movimiento creado con éxito', () => {
         cy.visit('/income');
 
-        cy.waitUntil(
-            () => cy.get('input[name=description]').type('Description'),
-            cy.get('input[name=date]').type('2021-04-26'),
-            cy.get('input[name=category]').type('Bono'),
-            cy.get('input[name=amount]').type('100000')
-        ).then(() => {
+            cy.get('input[name=description]').type('Description');
+            cy.get('input[name=date]').type('2021-04-26');
+            cy.get('input[name=category]').type('Bono');
+            cy.get('input[name=amount]').type('100000');
+            cy.contains('Guardar').click();
+
+            cy.intercept('POST', '**/movements').as('postIncome')
+            cy.wait('@postIncome').its('response.statusCode').should('be.oneOf', [201])
+
             const stub = cy.stub();
             cy.on('window:alert', stub);
             cy.contains('Guardar')
@@ -48,6 +51,5 @@ describe('Ingresos Test', () => {
                         'Ingreso creado con éxito'
                     );
                 });
-        });
     });
 });
