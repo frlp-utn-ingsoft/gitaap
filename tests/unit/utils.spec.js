@@ -1,5 +1,5 @@
 const { formatDate } = require('../../client/js/utils.js');
-
+const { monefy } = require('../../client/js/utils.js');
 
 describe('Método formatDate', () =>{
 
@@ -14,7 +14,7 @@ describe('Método formatDate', () =>{
 
 describe('Método monefy', () => {
 
-    it('Debería convertir 1000 en "1000,35"', async () => {
+    it('Debería convertir 1000.35 en "1000,35"', async () => {
         expect(monefy(1000.35)).toBe('1000,35');
     });
     
