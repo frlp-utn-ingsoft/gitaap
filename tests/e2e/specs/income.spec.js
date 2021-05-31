@@ -38,8 +38,19 @@ describe('Ingresos Test', () => {
         cy.contains('Guardar').click();
         cy.reload();
         
-
         cy.get(':nth-child(5) > [data-testid=movement] > .level-right > :nth-child(1) > .has-text-success').should('include.text', '1.523,74')
+    });
 
+
+    it('Deberia poder verificar la fecha al cargar un nuevo ingreso', () => {
+        cy.visit('/income');
+
+        cy.get('input[name=date]').type('2021-05-18');
+        cy.get('input[name=category]').type('libreria');
+        cy.get('input[name=amount]').type('600');
+        cy.contains('Guardar').click();
+        cy.reload();
+
+        cy.get(':nth-child(5) > [data-testid=movement] > .level-left > :nth-child(2) > div > .has-text-weight-light').should('include.text', '2021-05-18')
     });
 });
