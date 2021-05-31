@@ -28,4 +28,18 @@ describe('Ingresos Test', () => {
 
         cy.get('[data-testid=movement]').should('have.length', 5);
     });
+    
+    it('Deberia poder cargar montos con decimales a los ingresos', () => {
+        cy.visit('/income');
+
+        cy.get('input[name=date]').type('2021-07-05');
+        cy.get('input[name=category]').type('Expensas');
+        cy.get('input[name=amount]').type("1523.74");
+        cy.contains('Guardar').click();
+        cy.reload();
+        
+
+        cy.get(':nth-child(5) > [data-testid=movement] > .level-right > :nth-child(1) > .has-text-success').should('include.text', '1.523,74')
+
+    });
 });
