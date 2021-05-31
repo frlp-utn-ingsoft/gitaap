@@ -39,9 +39,6 @@ describe('Ingresos Test', () => {
             cy.get('input[name=amount]').type('100000');
             cy.contains('Guardar').click();
 
-            cy.intercept('POST', '**/movements').as('postIncome')
-            cy.wait('@postIncome').its('response.statusCode').should('be.oneOf', [201])
-
             const stub = cy.stub();
             cy.on('window:alert', stub);
             cy.contains('Guardar')
