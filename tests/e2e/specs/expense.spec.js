@@ -32,12 +32,11 @@ describe('Egresos Test', () => {
 
     it('Deberia aparecer la alerta de movimiento creado con éxito', () => {
         cy.visit('/expense');
-        cy.wait(3000);
         cy.get('input[name=description]').type('Description');
         cy.get('input[name=date]').type('2021-04-26');
         cy.get('input[name=category]').type('Bono');
         cy.get('input[name=amount]').type('100000');
-        cy.contains('Guardar').click();
+        cy.contains('Guardar').wait(300).click();
 
         const stub = cy.stub();
         cy.on('window:alert', stub);
