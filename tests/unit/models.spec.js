@@ -5,12 +5,11 @@ beforeEach(async () => {
     await MovementModel.Movement.sync({ force: true });
 });
 
-test('Crear movimiento descrip', async () => {
+test('Crear movimiento', async () => {
     const movementData = {
         date: '04/01/2021',
         amount: 50000.0,
         type: MovementType.INCOME,
-        description: 'Description',
         category: 'Sueldo',
     };
 
@@ -20,6 +19,19 @@ test('Crear movimiento descrip', async () => {
     expect(movement.amount).toBe(movementData.amount);
     expect(movement.type).toBe(movementData.type);
     expect(movement.category).toBe(movementData.category);
+});
+
+test('Verificar el campo descripcion', async () => {
+    const movementData = {
+        date: '04/01/2021',
+        amount: 50000.0,
+        type: MovementType.INCOME,
+        category: 'Sueldo',
+        description: 'description',
+    };
+
+    // Creamos el movimiento
+    const movement = await MovementModel.create(movementData);
     expect(movement.description).toBe(movementData.description);
 });
 
@@ -43,7 +55,6 @@ test('Crear movimiento sin tipo', async () => {
         date: '01/01/2021',
         amount: 1000.0,
         category: 'Supermercado',
-        description: 'Description',
     };
 
     // Creamos el movimiento
@@ -52,7 +63,6 @@ test('Crear movimiento sin tipo', async () => {
     expect(movement.amount).toBe(movementData.amount);
     expect(movement.type).toBe(MovementType.EXPENSE);
     expect(movement.category).toBe(movementData.category);
-    expect(movement.description).toBe(movementData.description);
 });
 
 test('Crear movimiento sin fecha', async () => {
