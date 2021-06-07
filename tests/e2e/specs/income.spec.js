@@ -29,6 +29,7 @@ describe('Ingresos Test', () => {
         cy.get('[data-testid=movement]').should('have.length', 5);
     });
     
+    //El test de abajo corrobora que se carguen correctamente los montos que poseen decimales.
     it('Deberia poder cargar montos con decimales a los ingresos', () => {
         cy.visit('/income');
 
