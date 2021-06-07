@@ -25,4 +25,14 @@ describe('Home Test', () => {
             .title()
             .should('eq', 'Gitapp - Ingresos')
     });
+
+    it('Card deberia tener card-header', () => {
+        cy.visit('/');
+        cy.get('.card')
+            .each(($card) => {
+                cy.wrap($card)
+                    .children()
+                    .should('have.class', 'card-header')
+            })
+    });
 });

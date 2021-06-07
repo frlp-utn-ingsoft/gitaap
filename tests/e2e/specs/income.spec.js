@@ -28,4 +28,14 @@ describe('Ingresos Test', () => {
 
         cy.get('[data-testid=movement]').should('have.length', 5);
     });
+
+    it('Card deberia tener card-header', () => {
+        cy.visit('/income');
+        cy.get('.card')
+            .each(($card) => {
+                cy.wrap($card)
+                    .children()
+                    .should('have.class', 'card-header')
+            })
+    });
 });
