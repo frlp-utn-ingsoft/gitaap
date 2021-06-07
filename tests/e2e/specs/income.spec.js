@@ -1,3 +1,5 @@
+
+
 describe('Ingresos Test', () => {
     // Limpio la db antes de cada test
     beforeEach(() => {
@@ -29,6 +31,8 @@ describe('Ingresos Test', () => {
         cy.get('[data-testid=movement]').should('have.length', 5);
     });
 
+// Este test sirve para verificar si se tomo la fecha enviada en la creación de un movimiento.
+
     it('Deberia poder verificar la fecha al cargar un nuevo ingreso', () => {
         cy.visit('/income');
 
@@ -38,8 +42,7 @@ describe('Ingresos Test', () => {
         cy.contains('Guardar').click();
         cy.reload();
 
-        cy.get(':nth-child(5) > [data-testid=movement] > .level-left > :nth-child(2) > div > .has-text-weight-light').should('include.text', '2021-05-18')
-
+        cy.get(':nth-child(5) > [data-testid=movement] > .level-left > :nth-child(2) > div > .has-text-weight-light').should('include.text', '2021-05-18') 
        
     });
 
