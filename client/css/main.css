@@ -20,7 +20,7 @@
 }
 
 html {
-    background-color: green;
+    background-color: var(--gray);
     overflow-y: auto;
 }
 
