@@ -20,7 +20,7 @@
 }
 
 html {
-    background-color: aqua;
+    background-color: var(--gray);
     overflow-y: auto;
 }
 
