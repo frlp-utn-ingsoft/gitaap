@@ -1,3 +1,5 @@
+
+
 describe('Ingresos Test', () => {
     // Limpio la db antes de cada test
     beforeEach(() => {
@@ -27,5 +29,32 @@ describe('Ingresos Test', () => {
         cy.reload();
 
         cy.get('[data-testid=movement]').should('have.length', 5);
+    });
+    
+    it('Deberia poder cargar montos con decimales a los ingresos', () => {
+        cy.visit('/income');
+
+        cy.get('input[name=date]').type('2021-07-05');
+        cy.get('input[name=category]').type('Expensas');
+        cy.get('input[name=amount]').type("1523.74");
+        cy.contains('Guardar').click();
+        cy.reload();
+        
+        cy.get(':nth-child(5) > [data-testid=movement] > .level-right > :nth-child(1) > .has-text-success').should('include.text', '1.523,74')
+    });
+
+
+// Este test sirve para verificar si se tomo la fecha enviada en la creación de un movimiento.
+
+    it('Deberia poder verificar la fecha al cargar un nuevo ingreso', () => {
+        cy.visit('/income');
+
+        cy.get('input[name=date]').type('2021-05-18');
+        cy.get('input[name=category]').type('libreria');
+        cy.get('input[name=amount]').type('600');
+        cy.contains('Guardar').click();
+        cy.reload();
+
+        cy.get(':nth-child(5) > [data-testid=movement] > .level-left > :nth-child(2) > div > .has-text-weight-light').should('include.text', '2021-05-18') 
     });
 });
