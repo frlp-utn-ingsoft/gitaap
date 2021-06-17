@@ -1,8 +1,16 @@
 export function monefy(num) {
     if (!num) return '';
 
-    const numStr = String(num);
+    const NumS = String(num);
+
+    const Total = NumS.split('.');
+
+
+    const numStr = String(Total[0]);
+
+
     const points = numStr.length / 3;
+
     const result = [];
 
     for (let i = 0; i < points; i++) {
@@ -10,10 +18,16 @@ export function monefy(num) {
         const e = -3 * i || undefined;
         const chunk = numStr.slice(s, e);
 
+
         result.push(chunk);
     }
 
-    return result.reverse().join('.');
+    if (Total[1] == null){
+        return result.reverse().join('.');
+    } else{
+        return result.reverse().join('.') + ',' + Total[1];
+    }
+    
 }
 
 export function getRandomColor() {

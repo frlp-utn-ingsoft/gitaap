@@ -18,5 +18,33 @@ test('Deberia renderizar correctamente un movimiento del tipo income', () => {
         'src',
         expect.stringContaining('income')
     );
-    expect(getByText($movement, '$')).toHaveClass('has-text-success');
+    expect(getByText($movement, '+ $')).toHaveClass('has-text-success');
 });
+
+
+test('Deberia figurar un + adelante de los ingresos de las listas', () => {
+    const $movement = render('movement', {
+        movement: {
+            type: 'income',
+            date: '01/01/2021',
+            amount: 1000.0,
+            category: 'Supermercado',
+        },
+    });
+
+    expect(getByText($movement, '+ $'));
+});
+
+test('Deberia figurar un - adelante de los ingresos de las listas', () => {
+    const $movement = render('movement', {
+        movement: {
+            type: 'expense',
+            date: '01/01/2021',
+            amount: 1000.0,
+            category: 'Supermercado',
+        },
+    });
+
+    expect(getByText($movement, '- $'));
+});
+

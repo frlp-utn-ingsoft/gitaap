@@ -12,29 +12,29 @@ let refs = getRefs(document.body);
 /**
  * Obtiene todos los ultimos movimientos disponibles
  **/
-async function getIncomes() {
-    return movementService.getIncomes();
+async function getExpense() {
+    return movementService.getExpense();
 }
 
 /**
  * Renderiza los libros
  **/
-function renderIncomes(state) {
-    render('movement-list.html', state, refs.incomes);
+function renderExpense(state) {
+    render('movement-list.html', state, refs.expense);
 }
 
 /**
- * Inicializa la vista income
+ * Inicializa la vista expense
  **/
 async function init() {
-    state.movements = await getIncomes();
-    renderIncomes(state);
+    state.movements = await getExpense();
+    renderExpense(state);
 }
 
 function getMovementData() {
     const formData = new FormData(refs.form.firstElementChild);
     const movement = Object.fromEntries(formData);
-    movement.type = 'income';
+    movement.type = "expense"
     return movement;
 }
 
@@ -69,11 +69,6 @@ window.onRemove = async function () {
  * Guarda un movimiento
  **/
 window.onSave = async function (e) {
-    const form = document.getElementById('form');
-    if (!form.checkValidity()) {
-        console.error('Rellenar Campos');
-        return;
-    }
     e.stopPropagation();
     e.preventDefault();
     const movement = getMovementData();

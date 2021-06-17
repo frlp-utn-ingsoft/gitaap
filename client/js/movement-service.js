@@ -12,6 +12,12 @@ async function getIncomes() {
     return movements;
 }
 
+async function getExpense() {
+    const resp = await fetch(`${BASE_URL}/movements?type=expense`);
+    const { movements } = await resp.json();
+    return movements;
+}
+
 async function update(movement) {
     const resp = await fetch(`${BASE_URL}/movements/${movement.id}`, {
         method: 'PUT',
@@ -31,15 +37,29 @@ async function create(movement) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(movement),
+        
     });
 
+    window.alert("El movimiento se guardo con exito");
+
     return resp.json();
+
 }
 
 async function remove(movement) {
+    const resp = await fetch(`${BASE_URL}/movements/${movement.id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(movement),
+    });
+
     console.log('delete:', movement);
+
     return new Promise(resolve => {
         resolve();
+        resp.json();
     });
 }
 
@@ -49,4 +69,5 @@ export default {
     remove,
     getLast,
     getIncomes,
+    getExpense,
 };

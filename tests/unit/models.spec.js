@@ -21,6 +21,19 @@ test('Crear movimiento', async () => {
     expect(movement.category).toBe(movementData.category);
 });
 
+test('Tomar la fecha enviada', async () => {
+    const movementData = {
+        date: '2021-04-01T03:00:00.000Z',
+        amount: 50000.0,
+        category: 'Sueldo',
+    };
+
+    // Creamos el movimiento
+    const movement = await MovementModel.create(movementData);
+
+    expect(Date.parse(movement.date)).toBe(Date.parse(movementData.date));
+});
+
 test('Crear movimiento sin tipo', async () => {
     const movementData = {
         date: '01/01/2021',

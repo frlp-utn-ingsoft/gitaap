@@ -25,4 +25,10 @@ describe('Home Test', () => {
             .title()
             .should('eq', 'Gitapp - Ingresos')
     });
+
+    it('Headers con card-header-title', () => {
+        cy.visit('/');
+        cy.get('p').should('have.class', 'card-header-title');
+
+    })
 });

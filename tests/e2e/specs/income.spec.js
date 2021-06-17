@@ -20,6 +20,7 @@ describe('Ingresos Test', () => {
     it('Deberia poder crear un nuevo ingreso', () => {
         cy.visit('/income');
 
+        cy.get('input[name=description]').type('Descripcion');
         cy.get('input[name=date]').type('2021-04-26');
         cy.get('input[name=category]').type('Bono');
         cy.get('input[name=amount]').type('100000');
@@ -27,5 +28,26 @@ describe('Ingresos Test', () => {
         cy.reload();
 
         cy.get('[data-testid=movement]').should('have.length', 5);
+    });
+
+    it('Deberia Validarse todos los campos del form al crear movimiento', () => {
+        cy.visit('/income');
+
+        cy.get(':nth-child(2) > .control > .input').should(
+            'have.attr',
+            'required'
+        );
+        cy.get(':nth-child(3) > .control > .input').should(
+            'have.attr',
+            'required'
+        );
+        cy.get(':nth-child(4) > .control > .input').should(
+            'have.attr',
+            'required'
+        );
+        cy.get(':nth-child(5) > .control > .input').should(
+            'have.attr',
+            'required'
+        );
     });
 });

@@ -1,3 +1,5 @@
+
+
 <div class="level is-mobile movement" data-testid="movement">
     <div class="level-left">
         <div class="level-item">
@@ -21,10 +23,15 @@
 
     <div class="level-right">
         <div class="level-item">
-            <p
+            <p id="signo" 
                 class="{{ 'has-text-success' if movement.type == 'income' else 'has-text-danger' }} is-size-3"
-            >
-                $ {{ movement.amount | monefy }}
+            >   
+                {% if movement.type == 'income' %}
+                + $ {{ movement.amount | monefy }}
+                {% endif %}
+                {% if movement.type == 'expense' %}
+                - $ {{ movement.amount | monefy }}
+                {% endif %}
             </p>
         </div>
 
@@ -40,3 +47,4 @@
         {% endif %}
     </div>
 </div>
+
