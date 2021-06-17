@@ -12,29 +12,30 @@ let refs = getRefs(document.body);
 /**
  * Obtiene todos los ultimos movimientos disponibles
  **/
-async function getIncomes() {
-    return movementService.getIncomes();
+async function getExpenses() {
+    return movementService.getExpenses();
 }
 
 /**
  * Renderiza los libros
  **/
-function renderIncomes(state) {
-    render('movement-list.html', state, refs.incomes);
+function renderExpenses(state) {
+    console.log(refs);
+    render('movement-list.html', state, refs.expense);
 }
 
 /**
  * Inicializa la vista income
  **/
 async function init() {
-    state.movements = await getIncomes();
-    renderIncomes(state);
+    state.movements = await getExpenses();
+    renderExpenses(state);
 }
 
 function getMovementData() {
     const formData = new FormData(refs.form.firstElementChild);
     const movement = Object.fromEntries(formData);
-    movement.type = "income"
+    movement.type = "expense"
     return movement;
 }
 

@@ -21,6 +21,39 @@ test('Crear movimiento', async () => {
     expect(movement.category).toBe(movementData.category);
 });
 
+//Verificar campo descripcion
+test('Verificar campo descripcion', async () => {
+    const movementData = {
+        date: '04/01/2021',
+        amount: 50000.0,
+        type: MovementType.INCOME,
+        category: 'Sueldo',
+        description: 'description',
+    };
+
+    // Creamos el movimiento
+    const movement = await MovementModel.create(movementData);
+    expect(movement.description).toBe(movementData.description);
+});
+
+test('Verificar que el campo date del movimiento creado corresponda con el ingresado', async () => {
+        const movementData = {
+           date: '04/01/2021',
+           amount: 50000.0,
+           type: MovementType.INCOME,
+           category: 'Sueldo',
+           description: 'description',
+        };
+
+       // Creamos el movimiento
+       const movement = await MovementModel.create(movementData);
+       const date=movement.date.toISOString().replace(/T/, ' ').split(' ')[0].split('-');
+       const formatedDate = date[1]+"/"+date[2]+"/"+date[0];
+
+       expect(formatedDate).toBe(movementData.date);
+
+    });
+
 test('Crear movimiento sin tipo', async () => {
     const movementData = {
         date: '01/01/2021',
