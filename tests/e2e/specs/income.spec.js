@@ -46,6 +46,8 @@ describe('Ingresos Test', () => {
 
     });
 
+
+    
     it('Deberia evitar que se ingrese numeros negativos', (done) => {
         cy.visit('/income');
 
