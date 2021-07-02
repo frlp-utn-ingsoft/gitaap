@@ -317,3 +317,16 @@ test('Eliminar movimiento inexistente', async () => {
     // El movimiento debería seguir existiendo en la lista
     expect(movements.rows.length).toBe(1);
 });
+
+test('Fecha enviada', async () => {
+    const movementData = {
+        date: '2021-04-01T03:00:00.000Z',
+        amount: 50000.0,
+        category: 'Sueldo',
+    };
+
+    // Creamos el movimiento
+    const movement = await MovementModel.create(movementData);
+
+    expect(Date.parse(movement.date)).toBe(Date.parse(movementData.date));
+});

@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2021-06-20
+
+### Added
+
+-   Alerta al crear un movimiento
+
+## Fixed
+
+-   Refresca la página a la hora de agregar un movimiento
+-   Arregla headers en "Resumen"
+
 ## [1.0.1] - 2021-05-03
 
 ### Added
@@ -30,6 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Home UI with charts and last movements
 -   Incomes UI with last incomes
 
-[unreleased]: https://github.com/frlp-utn-ingsoft/gitapp/compare/v1.0.1...HEAD
-[1.0.1]: https://github.com/frlp-utn-ingsoft/gitapp/releases/tag/v1.0.1
-[1.0.0]: https://github.com/frlp-utn-ingsoft/gitapp/releases/tag/v1.0.0
+[unreleased]: https://github.com/jcrzmoyano/gitapp/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/jcrzmoyano/gitapp/releases/tag/v1.1.0
+[1.0.1]: https://github.com/jcrzmoyano/gitapp/releases/tag/v1.0.1
+[1.0.0]: https://github.com/jcrzmoyano/gitapp/releases/tag/v1.0.0

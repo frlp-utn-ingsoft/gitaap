@@ -20,3 +20,5 @@ test('Deberia renderizar correctamente un movimiento del tipo income', () => {
     );
     expect(getByText($movement, '$')).toHaveClass('has-text-success');
 });
+
+

@@ -24,4 +24,5 @@ module.exports = {
     ],
     ignorePatterns: ['client/js/partials/*.js'],
     extends: ['eslint:recommended'],
+    root: true,
 };

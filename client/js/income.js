@@ -51,7 +51,7 @@ window.editMovement = function (movement) {
 /**
  * Cancela una edicion o creación
  **/
-window.onCancel = function () {
+window.onCancel = function () { 
     state.movement = {};
     render('movement-form.html', state, refs.form);
 };
@@ -60,7 +60,7 @@ window.onCancel = function () {
  * Elimina un movimiento
  **/
 window.onRemove = async function () {
-    await movementService.update(state.movement);
+    await movementService.remove(state.movement);
     state.movement = {};
     render('movement-form.html', state, refs.form);
 };
@@ -69,6 +69,14 @@ window.onRemove = async function () {
  * Guarda un movimiento
  **/
 window.onSave = async function (e) {
+
+    const monto = document.querySelector('#monto');
+
+    if (monto.value<0){
+        alert('Debe ingresar un monto mayor a 0');
+    }
+    else{
+
     e.stopPropagation();
     e.preventDefault();
     const movement = getMovementData();
@@ -79,8 +87,10 @@ window.onSave = async function (e) {
         await movementService.create(movement);
     }
 
+    window.location.reload() //Recarga la URL como si fuera un F5 
+
     state.movement = {};
     render('movement-form.html', state, refs.form);
+}
 };
-
 init();

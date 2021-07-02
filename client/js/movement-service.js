@@ -21,6 +21,8 @@ async function update(movement) {
         body: JSON.stringify(movement),
     });
 
+    window.alert("Movimiento actualizado correctamente");
+
     return resp.json();
 }
 
@@ -33,14 +35,16 @@ async function create(movement) {
         body: JSON.stringify(movement),
     });
 
+    window.alert("Movimiento creado correctamente");  
+
     return resp.json();
 }
 
 async function remove(movement) {
-    console.log('delete:', movement);
-    return new Promise(resolve => {
-        resolve();
+    const resp = await fetch(`${BASE_URL}/movements/${movement.id}`, {
+        method: 'DELETE',
     });
+    return resp.json(); 
 }
 
 export default {

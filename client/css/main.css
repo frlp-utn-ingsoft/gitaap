@@ -131,3 +131,14 @@ html {
         margin-bottom: 1rem;
     }
 }
+.ingreso::before {
+    font-weight: negrita;
+    color: #07b644;
+    content: "+";
+}
+
+.egreso::before{
+    font-weight: negrita;
+    color: #f50031;
+    content: "-";
+}

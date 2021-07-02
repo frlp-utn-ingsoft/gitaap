@@ -1,7 +1,7 @@
 export function monefy(num) {
     if (!num) return '';
 
-    const numStr = String(num);
+    /*const numStr = String(num);
     const points = numStr.length / 3;
     const result = [];
 
@@ -13,7 +13,11 @@ export function monefy(num) {
         result.push(chunk);
     }
 
-    return result.reverse().join('.');
+    return result.reverse().join('.');*/
+
+    var numero = num.toString().split(".");
+    numero[0]=numero[0].replace(/\B(?=(\d{3})+(?!\d))/g,".");
+    return numero.join(",");
 }
 
 export function getRandomColor() {
